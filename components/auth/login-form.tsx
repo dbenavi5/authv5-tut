@@ -21,9 +21,9 @@ import { Button } from "@/components/ui/button";
 import { FormError } from "@/components/form-error";
 import { FormSuccess } from "@/components/form-success";
 import { login } from "@/actions/login";
+import Link from "next/link";
 
-type Props = {};
-export const LoginForm = ({}: Props) => {
+export const LoginForm = () => {
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
@@ -95,6 +95,9 @@ export const LoginForm = ({}: Props) => {
                       type="password"
                     />
                   </FormControl>
+                  <Button size='sm' variant='link' asChild className="px-0  font-normal" >
+                    <Link href='/auth/reset'>Forgot Password</Link>
+                  </Button>
                   <FormMessage />
                 </FormItem>
               )}
