@@ -4,7 +4,7 @@ import { db } from '@/lib/db'
 import authConfig from "@/auth.config"
 import { getUserById } from "@/data/user"
 import { UserRole } from "@prisma/client"
-import { getTwoFactorConfirmationByUserId } from "./data/two-factor-confirmation-token";
+import { getTwoFactorConfirmationByUserId } from "@/data/two-factor-confirmation-token";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
     pages: {
