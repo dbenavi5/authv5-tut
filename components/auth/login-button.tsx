@@ -13,21 +13,20 @@ const LoginButton = ({
   mode = "redirect",
   asChild,
 }: LoginButtonProps) => {
-
-    const router = useRouter();
+  const router = useRouter();
 
   const onClick = () => {
-    router.push('/auth/login');
+    router.push("/auth/login");
   };
-    
-    if (mode === "modal") { 
-        return (
-            <span>
-                {/* TODO: Implement modal */}
-            </span>
-        )
-    }
-  return <span onClick={onClick} className="cursor-pointer">{children}</span>;
+
+  if (mode === "modal") {
+    return <span>{/* TODO: Implement modal */}</span>;
+  }
+  return (
+    <span onClick={onClick} className="cursor-pointer">
+      {children}
+    </span>
+  );
 };
 
 export default LoginButton;
