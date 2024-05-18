@@ -5,7 +5,6 @@ import { useTransition, useState } from "react";
 import { useSession } from "next-auth/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { useCurrentUser } from "@/hooks/use-current-user";
 import { settings } from "@/actions/settings";
 import { SettingsSchema } from "@/schemas";
 
@@ -77,13 +76,13 @@ export const SettingsClient = ({ user }: SettingsClientProps) => {
           }
         })
         .catch(() => {
-          setError("[SETTINGS_PAGE]: Something went wrong");
+          setError("Something went wrong");
         });
     });
   };
 
   return (
-    <Card className="lg:w-[600px] sm:w-[400px]">
+    <Card className="sm:w-[400px] md:w-[500px] lg:w-[600px]">
       <CardHeader>
         <p className="text-2xl text-center font-semibold">⚙️ Settings</p>
       </CardHeader>
