@@ -8,6 +8,7 @@ import { sendVerificationEmail } from '@/lib/mail';
 import { generateVerificationToken } from '@/lib/tokens';
 import { SettingsSchema } from '@/schemas';
 import * as z from 'zod';
+import { unstable_update } from '@/auth';
 
 export const settings = async (values: z.infer<typeof SettingsSchema>) => {
     const user = await currentUser();
@@ -60,8 +61,8 @@ export const settings = async (values: z.infer<typeof SettingsSchema>) => {
         values.password = hashedPassword;
         values.newPassword = undefined;
     }
-    
-    await db.user.update({
+
+    const updatedUser = await db.user.update({
         where: {
             id: dbUser.id,
         },
@@ -69,6 +70,15 @@ export const settings = async (values: z.infer<typeof SettingsSchema>) => {
             ...values,
         }
     });
+
+    await unstable_update({
+        user: {
+            name: updatedUser.name,
+            email: updatedUser.email,
+            isTwoFactorEnabled: updatedUser.isTwoFactorEnabled,
+            role: updatedUser.role,
+        }
+    })
 
     return { success: 'Settings Updated!' };
 }

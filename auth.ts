@@ -7,7 +7,7 @@ import { UserRole } from "@prisma/client"
 import { getTwoFactorConfirmationByUserId } from "@/data/two-factor-confirmation-token";
 import { getAccountByUserId } from "./data/account"
 
-export const { handlers, auth, signIn, signOut } = NextAuth({
+export const { handlers, auth, signIn, signOut, unstable_update } = NextAuth({
     pages: {
         signIn: '/auth/login',
         error: '/auth/error',
