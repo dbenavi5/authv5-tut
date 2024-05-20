@@ -82,7 +82,7 @@ export const SettingsClient = ({ user }: SettingsClientProps) => {
   };
 
   return (
-    <Card className="sm:w-[400px] md:w-[500px] lg:w-[600px]">
+    <Card className="w-[400px] md:w-[500px] lg:w-[600px]">
       <CardHeader>
         <p className="text-2xl text-center font-semibold">⚙️ Settings</p>
       </CardHeader>
