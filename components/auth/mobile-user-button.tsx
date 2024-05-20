@@ -12,12 +12,12 @@ import { useCurrentUser } from "@/hooks/use-current-user";
 import { LogoutButton } from "@/components/auth/logout-button";
 import { ExitIcon } from "@radix-ui/react-icons";
 
-export const UserButton = () => {
+export const MobilesUserButton = () => {
   const user = useCurrentUser();
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="hidden lg:flex">
-        <Avatar>
+      <DropdownMenuTrigger className="flex lg:hidden">
+        <Avatar className="w-8 h-8 -mt-2">
           <AvatarImage src={user?.image || ""} />
           <AvatarFallback className="bg-violet-800">
             <FaUser className="text-white" />

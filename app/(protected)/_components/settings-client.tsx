@@ -32,6 +32,7 @@ import {
 } from "@/components/ui/select";
 import { UserRole } from "@prisma/client";
 import { User } from "next-auth";
+import { MobilesUserButton } from "@/components/auth/mobile-user-button";
 
 interface SettingsClientProps {
   user:
@@ -82,9 +83,10 @@ export const SettingsClient = ({ user }: SettingsClientProps) => {
   };
 
   return (
-    <Card className="w-[400px] md:w-[500px] lg:w-[600px]">
-      <CardHeader>
-        <p className="text-2xl text-center font-semibold">⚙️ Settings</p>
+    <Card className="w-[350px] md:w-[500px] lg:w-[600px]">
+      <CardHeader className="flex flex-row justify-between lg:justify-center items-center">
+        <p className="text-2xl font-semibold">⚙️ Settings</p>
+        <MobilesUserButton />
       </CardHeader>
       <CardContent>
         <Form {...form}>
