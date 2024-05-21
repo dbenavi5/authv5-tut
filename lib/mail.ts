@@ -9,7 +9,7 @@ export const sendTwoFactorTokenEmail = async (
 ) => {
 
     await resend.emails.send({
-        from: 'mail@auth5guide.us',
+        from: '2FA-mail@authv5-tut.vercel.app',
         to: email,
         subject: '2FA Code',
         html: `<p>Your 2FA Code: ${token}</p>`
@@ -23,7 +23,7 @@ export const sendPasswordResetEmail = async (
     const resetLink = `${domain}/auth/new-password?token=${token}`;
 
     await resend.emails.send({
-        from: 'mail@auth5guide.us',
+        from: 'password-reset@authv5-tut.vercel.app',
         to: email,
         subject: 'Reset your password',
         html: `<p>Click <a href="${resetLink}">here</a> to reset password.</p>`
@@ -37,7 +37,7 @@ export const sendVerificationEmail = async (
     const confirmLink = `${domain}/auth/new-verification?token=${token}`;
 
     await resend.emails.send({
-        from: 'mail@auth5guide.us',
+        from: 'onboarding@authv5-tut.vercel.app',
         to: email,
         subject: 'Confirm your email',
         html: `<p>Click <a href="${confirmLink}">here</a> to confirm email.</p>`
